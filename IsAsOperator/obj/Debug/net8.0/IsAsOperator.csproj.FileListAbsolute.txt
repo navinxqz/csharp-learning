@@ -1,0 +1,15 @@
+D:\versity space\coding file\C#\IsAsOperator\bin\Debug\net8.0\IsAsOperator.exe
+D:\versity space\coding file\C#\IsAsOperator\bin\Debug\net8.0\IsAsOperator.deps.json
+D:\versity space\coding file\C#\IsAsOperator\bin\Debug\net8.0\IsAsOperator.runtimeconfig.json
+D:\versity space\coding file\C#\IsAsOperator\bin\Debug\net8.0\IsAsOperator.dll
+D:\versity space\coding file\C#\IsAsOperator\bin\Debug\net8.0\IsAsOperator.pdb
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.GeneratedMSBuildEditorConfig.editorconfig
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.AssemblyInfoInputs.cache
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.AssemblyInfo.cs
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.csproj.CoreCompileInputs.cache
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.sourcelink.json
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.dll
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\refint\IsAsOperator.dll
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.pdb
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\IsAsOperator.genruntimeconfig.cache
+D:\versity space\coding file\C#\IsAsOperator\obj\Debug\net8.0\ref\IsAsOperator.dll
