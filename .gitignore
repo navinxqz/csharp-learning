@@ -6,3 +6,5 @@ obj
 
 # Files
 *.user
+*.csproj
+*.sln
