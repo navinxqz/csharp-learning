@@ -1,2 +1,2 @@
-All C# codes I am practising in my course.
-Self learning 🍕🍕🍕
+My C# codes for my summer sem.
+<br>Self learning 🍕🍕🍕
