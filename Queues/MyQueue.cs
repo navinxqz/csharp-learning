@@ -36,13 +36,15 @@ namespace MyQueue{
         }public T Dequeue(){
             if(count<=0){
                 //System.Console.WriteLine("Empty Queue!");
-                return default(T);
+                return default;
             }else{
                 T obj = queue[tail];    //pick obj frm the tail
                 tail = (tail+1) % queue.Length;
                 count--;
                 return obj;
             }
+        }public bool IsEmpty(){
+            return count==0;
         }
     }
 }
