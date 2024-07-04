@@ -26,9 +26,9 @@ class Program{
 
         Colors code1 = GetColors(c1);
         Colors code2 = GetColors(c2);
-        System.Console.WriteLine($"{c1} {code1.ToString()}");
-        Console.WriteLine($"{c2} {code2.ToString()}");
-        
+        Console.WriteLine($"{c1} {code1}");
+        Console.WriteLine($"{c2} {code2}\n");
+
         /*  Colors black = GetColors(Color.Black);
         Colors white = GetColors(Color.White);
         Console.WriteLine($"Black RGBcode= {black.R},{black.G},{black.B}");
