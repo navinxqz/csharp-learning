@@ -1,6 +1,9 @@
 ﻿string a = "Puta Madre" ;
-var b = a is string ? "Yes" : "No" ;
-var c = a is float ? "Yes" : "No";
+object b = a is string ? "Yes" : "No" ;
+var c = a is char ? "Yes" : "No";
 
 System.Console.WriteLine(b);
-System.Console.WriteLine(c); 
+System.Console.WriteLine(c);
+
+object d = a as string;
+System.Console.WriteLine(d);
