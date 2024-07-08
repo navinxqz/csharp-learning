@@ -19,6 +19,6 @@
             }
         }
         var output = (guess==false) ? $"You loose! Stop guessing you fool.\nThe secret num was {snum}" : "BOOM! You got it right";
-        Console.WriteLine($"{output}\n");
+        Console.WriteLine(output+"\n");
     }
 }
