@@ -26,7 +26,7 @@
             }return age;
         }
         public virtual void ShowInfo(){
-            Console.WriteLine($"\tBook Info:\nISBN: {ISBN}\tName: {Title}\nAuthor: {Author}\tPubDate: {PubDate.Day}/{PubDate.Month}/{PubDate.Year}");
+            Console.WriteLine($"Book Info:\nISBN: {ISBN}\tName: {Title}\nAuthor: {Author}\tPubDate: {PubDate.Day}/{PubDate.Month}/{PubDate.Year}");
         }
     }
     public class FictionBook : Book{
@@ -36,7 +36,7 @@
         }
         public override void ShowInfo(){
             base.ShowInfo();
-            Console.WriteLine("Genre: "+Genre);
+            Console.WriteLine($"Genre: {Genre}\n");
         }
     }
     public class NonFictional : Book{
@@ -46,12 +46,17 @@
         }
         public override void ShowInfo(){
             base.ShowInfo();
-            Console.WriteLine("Field of Study: "+ FieldStudy);
+            Console.WriteLine("Field of Study: {FieldStudy}\n");
         }
     }
     class Program{
         public static void Main(string[] args){
-            
+            Date today=new(16,7,2024);
+            FictionBook fb=new("1234","Napoleon","Roberts Andrew",new Date(4,11,2014),"Romance");
+            NonFictional nf = new("1235","The Book","J J Unknown",new Date(12,7,2011),"History");
+
+            fb.ShowInfo();
+            nf.ShowInfo();
         }
     }
 }
