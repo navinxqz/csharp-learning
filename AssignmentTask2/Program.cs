@@ -24,7 +24,7 @@
         }
         public override void ShowInfo(){
             base.ShowInfo();
-            Console.WriteLine($"Specialization: {Specialization}\nPatient per month: {patientperMonth}\n");
+            Console.WriteLine($"Specialization: {Specialization}\nPatient per month: {patientperMonth}");
         }
         public override bool staffStatus(){return patientperMonth>50;}
     }
@@ -37,20 +37,26 @@
         }
         public override void ShowInfo(){
             base.ShowInfo();
-            Console.WriteLine($"Shift: {Shift}, Patient Handled: {patientHandled}\n");
+            Console.WriteLine($"Shift: {Shift}, Patient Handled: {patientHandled}");
         }
         public override bool staffStatus(){return patientHandled>200;}
 
         public double CalcEarning(){
-            return patientHandled*1000; //per patient handled fee
+            return patientHandled*(100.5); //per patient handled fee
         }
     }
     class Program{
         public static void Main(string[] args){
-            Doctor d= new(11,"Dr. K",30000,"Surgery","Mouth",100);
+            Doctor d1= new(11,"Dr. K",30000,"Surgery","Mouth",100);
+            Doctor d2= new(12,"Dr. G",25000.5,"Surgery","Eye",10);
             Nurse n= new(22,"Nurse Nai", 25000,"Burn Unit","Morning",200);
 
-            d.ShowInfo();
+            d1.ShowInfo();
+            Console.WriteLine($"Eligible for bonus: {d1.staffStatus()}\n");
+            d2.ShowInfo();
+            Console.WriteLine($"Eligible for bonus: {d2.staffStatus()}\n");
+            n.ShowInfo();
+            Console.WriteLine($"Total Earnings: {n.CalcEarning()} Taka");
         }
     }
 }
