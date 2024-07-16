@@ -1,2 +1,2 @@
-C# codes for I did in summer
+C# codes I did in summer
 <br>Self learning 🍕🍕🍕
