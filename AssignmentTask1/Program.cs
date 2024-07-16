@@ -8,7 +8,13 @@
             this.Month = month;
             this.Day = day;
         }
-    }public abstract class Book{
+    }
+    public static class Books{  //total books
+        public static int books=0;  //initial
+        public static void increment(){books++;}
+        public static int getBooks(){return books;}
+    }
+    public abstract class Book{
         public string ISBN{ get; set; }
         public string Title{ get; set; }
         public string Author{get;set; }
@@ -18,6 +24,7 @@
             this.Title = Title;
             this.Author = Author;
             this.PubDate = pubDate;
+            Books.increment();
         }
         public int CalcAge(Date today){
             int age = today.Year - PubDate.Year;
@@ -46,7 +53,7 @@
         }
         public override void ShowInfo(){
             base.ShowInfo();
-            Console.WriteLine("Field of Study: {FieldStudy}\n");
+            Console.WriteLine($"Field of Study: {FieldStudy}\n");
         }
     }
     class Program{
@@ -57,6 +64,7 @@
 
             fb.ShowInfo();
             nf.ShowInfo();
+            System.Console.WriteLine($"Total books: {Books.getBooks()}\n");
         }
     }
 }
