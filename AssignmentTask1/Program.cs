@@ -19,5 +19,24 @@
             this.Author = Author;
             this.PubDate = pubDate;
         }
+        public int CalcAge(Date today){
+            int age = today.Year - PubDate.Year;
+            if(today.Month<PubDate.Month || (today.Month==PubDate.Month && today.Day<PubDate.Day)){
+                age--;
+            }return age;
+        }
+        public virtual void ShowInfo(){
+            Console.WriteLine($"\tBook Info:\nISBN: {ISBN}\tName: {Title}\nAuthor: {Author}\tPubDate: {PubDate.Day}/{PubDate.Month}/{PubDate.Year}");
+        }
+    }
+    public class FictionBook : Book{
+        public string Genre{ get; set; }
+        public FictionBook(string ISBN, string Title, string Author,Date pubDate,string genre):base(ISBN,Title,Author,pubDate){
+            this.Genre = genre;
+        }
+        public override void ShowInfo(){
+            base.ShowInfo();
+            Console.WriteLine("Genre: "+Genre);
+        }
     }
 }
