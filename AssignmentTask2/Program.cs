@@ -11,7 +11,7 @@
         this.Dept = Dept;
     }
     public  virtual void ShowInfo(){
-        Console.WriteLine($"ID: {ID}, Name: {Name}, Salary: {Salary:C}\nDept: {Dept}");
+        Console.WriteLine($"ID: {ID}, Name: {Name}, Salary: {Salary} Taka\nDept: {Dept}");
     }
     public virtual bool staffStatus(){return false;}
     }
@@ -24,11 +24,25 @@
         }
         public override void ShowInfo(){
             base.ShowInfo();
-            Console.WriteLine($"Specialization: {Specialization}\nPatient per month: {patientperMonth}");
+            Console.WriteLine($"Specialization: {Specialization}\nPatient per month: {patientperMonth}\n");
         }
         public override bool staffStatus(){return patientperMonth>50;}
     }
     public class Nurse : Staff{
         public string Shift{get;set;}
+        public int patientHandled{get;set;}
+        public Nurse(int ID,string Name,double Salary,string Dept,string shift,int patientHandled):base(ID,Name,Salary,Dept){
+            this.Shift = shift;
+            this.patientHandled = patientHandled;
+        }
+        public override void ShowInfo(){
+            base.ShowInfo();
+            Console.WriteLine($"Shift: {Shift}, Patient Handled: {patientHandled}\n");
+        }
+        public override bool staffStatus(){return patientHandled>200;}
+
+        public double CalcEarning(){
+            return patientHandled*1000; //per patient handled fee
+        }
     }
 }
