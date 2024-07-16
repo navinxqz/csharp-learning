@@ -45,4 +45,12 @@
             return patientHandled*1000; //per patient handled fee
         }
     }
+    class Program{
+        public static void Main(string[] args){
+            Doctor d= new(11,"Dr. K",30000,"Surgery","Mouth",100);
+            Nurse n= new(22,"Nurse Nai", 25000,"Burn Unit","Morning",200);
+
+            d.ShowInfo();
+        }
+    }
 }
