@@ -39,4 +39,19 @@
             Console.WriteLine("Genre: "+Genre);
         }
     }
+    public class NonFictional : Book{
+        public string FieldStudy{get;set;}
+        public NonFictional(string ISBN, string Title, string Author,Date pubDate,string FieldStudy):base(ISBN,Title,Author,pubDate){
+            this.FieldStudy = FieldStudy;
+        }
+        public override void ShowInfo(){
+            base.ShowInfo();
+            Console.WriteLine("Field of Study: "+ FieldStudy);
+        }
+    }
+    class Program{
+        public static void Main(string[] args){
+            
+        }
+    }
 }
