@@ -6,7 +6,14 @@
     public static void Main(string[] args){
         Console.Write("Total students in the classroom: ");
         int n = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Pattern: ");
 
-        Console.WriteLine($"The last student has --> {HavingEggs(n)} eggs");
+        for(int i=1; i <= n; i++){
+            if(i==n){
+                Console.Write(HavingEggs(i));
+            }else{
+                Console.Write(HavingEggs(i)+", ");
+            }
+        }Console.WriteLine($"\nThe last student has {HavingEggs(n)} eggs");
     }
 }
