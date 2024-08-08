@@ -1,0 +1,1 @@
+<p>Imagine a classroom full of kids who love collecting eggs. The first kid has just one tiny egg. The next kid is a little greedier and has 2 eggs. The third kid is even crazier about eggs and has 4! The pattern continues with each kid having double the number of eggs as the kid before them.</p>
