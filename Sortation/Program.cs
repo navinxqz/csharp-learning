@@ -2,10 +2,12 @@
 System.Console.WriteLine("Sorted...");
 Array.Sort(p);
 
+Array.Clear(p, 0, 3); //clears the first 3 elements
 foreach (string s in p)
 {
     System.Console.WriteLine("--> " +s);    //forward
 }
+
 System.Console.WriteLine("\nReversed...");
 Array.Reverse(p);
 
