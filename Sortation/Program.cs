@@ -6,3 +6,10 @@ foreach (string s in p)
 {
     System.Console.WriteLine("--> " +s);    //forward
 }
+System.Console.WriteLine("\nReversed...");
+Array.Reverse(p);
+
+foreach (string s in p)
+{
+    System.Console.WriteLine("--> " +s);    //reverse
+}
