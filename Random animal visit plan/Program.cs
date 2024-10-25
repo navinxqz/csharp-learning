@@ -1,4 +1,5 @@
-﻿string[] Animals = new string[] {
+﻿using System;
+string[] Animals = new string[] {
      "Dog", "Cat", "Bird", "Fish", "Elephant", "Lion", "Tiger", "Bear", "Wolf",
      "Duck", "Chicken", "Cow", "Horse", "Peppa Pig", "Suzy Sheep", "Ronaldo", 
      "Bunny", "Raccoon","Pikachu", "Dianosour", "Bulbasaur", "Squirtle" };
@@ -9,12 +10,46 @@ Visit("School Z",2);
 
 void Visit(string schoolName, int groupCount = 5)
 {
-    Console.WriteLine($"Visiting {schoolName} with {groupCount} groups");
+    Console.WriteLine($"Visiting {schoolName}");
+    RandomizeAnimals();
+    string[,] groups = AssignGroup(groupCount);
+    PrintGroups(groups);
+    Console.WriteLine();
+}
+void RandomizeAnimals()
+{
     Random random = new Random();
+    for (int i = 0; i < Animals.Length; i++)
+    {
+        int index = random.Next(i, Animals.Length);
+        string temp = Animals[index];
+        Animals[index] = Animals[i];
+        Animals[i] = temp;
+    }
+}
+string[,] AssignGroup(int groupCount=5)
+{
+    int groupSize = Animals.Length / groupCount;
+    string[,] groups = new string[groupCount,groupSize];
+
     for (int i = 0; i < groupCount; i++)
     {
-        int index = random.Next(Animals.Length);
-        Console.WriteLine($"Group {i + 1} visit: {Animals[index]}");
+        for (int j = 0; j < groupSize; j++)
+        {
+            groups[i, j] = Animals[i * groupSize + j];
+        }
     }
-    Console.WriteLine();
+    return groups;
+}
+void PrintGroups(string[,] groups)
+{
+    for (int i = 0; i < groups.GetLength(0); i++)
+    {
+        Console.WriteLine($"Group {i + 1}");
+        
+        for (int j = 0; j < groups.GetLength(1); j++)
+        {
+            Console.WriteLine(groups[i, j]);
+        }
+    }
 }
