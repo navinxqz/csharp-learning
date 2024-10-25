@@ -10,7 +10,7 @@ Visit("School Z",2);
 
 void Visit(string schoolName, int groupCount = 5)
 {
-    Console.WriteLine($"Visiting {schoolName}");
+    Console.WriteLine($"From {schoolName}");
     RandomizeAnimals();
     string[,] groups = AssignGroup(groupCount);
     PrintGroups(groups);
@@ -45,11 +45,11 @@ void PrintGroups(string[,] groups)
 {
     for (int i = 0; i < groups.GetLength(0); i++)
     {
-        Console.WriteLine($"Group {i + 1}");
-        
+        Console.Write($"Group {i + 1} visiting: ");
+
         for (int j = 0; j < groups.GetLength(1); j++)
         {
-            Console.WriteLine(groups[i, j]);
-        }
+            Console.Write(groups[i, j]+", ");
+        }System.Console.WriteLine();
     }
 }
