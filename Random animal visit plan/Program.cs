@@ -32,22 +32,21 @@ string[,] AssignGroup(int groupCount=5)
     int groupSize = Animals.Length / groupCount;
     string[,] groups = new string[groupCount,groupSize];
 
-    for (int i = 0; i < groupCount; i++)
+    for (int i = 0; i<groupCount; i++)
     {
-        for (int j = 0; j < groupSize; j++)
+        for (int j = 0; j<groupSize; j++)
         {
             groups[i, j] = Animals[i * groupSize + j];
         }
-    }
-    return groups;
+    }return groups;
 }
 void PrintGroups(string[,] groups)
 {
-    for (int i = 0; i < groups.GetLength(0); i++)
+    for (int i = 0; i<groups.GetLength(0); i++)
     {
         Console.Write($"Group {i + 1} visiting: ");
 
-        for (int j = 0; j < groups.GetLength(1); j++)
+        for (int j = 0; j<groups.GetLength(1); j++)
         {
             Console.Write(groups[i, j]+", ");
         }System.Console.WriteLine();
