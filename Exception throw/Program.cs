@@ -1,50 +1,88 @@
-﻿try
+﻿string[][] Values = new string[][]
 {
-    Process1();
+    new string[] { "1", "2", "3"},
+    new string[] { "1", "two", "3"},
+    new string[] { "0", "1", "2"}
+};
+string statusMessage = "";
+statusMessage = Workflow1(Values);
+
+if (statusMessage == "operating procedure complete")
+{
+    Console.WriteLine("'Workflow1' completed successfully.");
+}else
+{
+    Console.WriteLine("An error occurred during 'Workflow1'.");
+    Console.WriteLine(statusMessage);
 }
-catch(Exception ex){ Console.WriteLine(ex.Message); }
 
-static void Process1(){
-    string[][] value = new string[][]{
-        new string[] { "1", "two", "3" },
-        new string[] { "0", "6","2" }
-    };
-    foreach(string[] v in value){
-        try{
+static string Workflow1(string[][] Values)
+{
+    string operationStatusMessage = "good";
+    string processStatusMessage = "";
 
-        }catch(Exception ex){
-            //Console.WriteLine(ex.Message);
-            if(ex.StackTrace.Contains("Process2")){
-                if(ex is FormatException){
-                    Console.WriteLine(ex.Message);
-                    System.Console.WriteLine("Corrective action taken in Process1");
-                }else if(ex is DivideByZeroException){
-                    Console.WriteLine(ex.Message);
-                    System.Console.WriteLine("Partial corrective action taken in Process1...further action required");
-                    throw;
-                }else{
-                    throw new Exception("Unknown exception in Process1", ex);
+    foreach (string[] userEntries in Values)
+    {
+        processStatusMessage = Process1(userEntries);
+
+        if (processStatusMessage == "process complete")
+        {
+            Console.WriteLine("'Process1' completed successfully.");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("'Process1' encountered an issue, process aborted.");
+            Console.WriteLine(processStatusMessage);
+            Console.WriteLine();
+            operationStatusMessage = processStatusMessage;
+        }
+    }
+
+    if (operationStatusMessage == "good")
+    {
+        operationStatusMessage = "operating procedure complete";
+    }
+
+    return operationStatusMessage;
+}
+
+static string Process1(String[] userEntries)
+{
+    string processStatus = "clean";
+    string returnMessage = "";
+    int valueEntered;
+
+    foreach (string userValue in userEntries)
+    {
+        bool integerFormat = int.TryParse(userValue, out valueEntered);
+
+        if (integerFormat == true)
+        {
+            if (valueEntered != 0)
+            {
+                checked
+                {
+                    int calculatedValue = 4 / valueEntered;
                 }
             }
+            else
+            {
+                returnMessage = "Invalid data. User input values must be non-zero values.";
+                processStatus = "error";
+            }
+        }
+        else
+        {
+            returnMessage = "Invalid data. User input values must be valid integers.";
+            processStatus = "error";
         }
     }
-}
-static void Process2(string[] Entries){
-    int value;
-    foreach(string entry in Entries){
-        try{
-            value = int.Parse(entry);
-            checked{ int calc = 4/value; }
-        }
-        catch(FormatException ex){
-            FormatException fex = new FormatException("FormatException! Invalid entry in Process2");
-            //throw invalidFormatException;
-            throw fex;
-        }
-        catch(DivideByZeroException ex){
-            DivideByZeroException zex = new DivideByZeroException("DivideByZeroException! Calculation in 'Process2' encountered an unexpected divide by zero");
-            //throw unexpectedDivideByZeroException;
-            throw zex;
-        }
+
+    if (processStatus == "clean")
+    {
+        returnMessage = "process complete";
     }
+
+    return returnMessage;
 }
