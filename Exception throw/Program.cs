@@ -5,7 +5,7 @@
 {
     Console.WriteLine(ex.Message);
 }
-static void Process(){
+static void Process1(){
     string[][] value = new string[][]{
         new string[] { "1", "two", "3" },
         new string[] { "0", "6","2" }
@@ -18,15 +18,32 @@ static void Process(){
             if(ex.StackTrace.Contains("Process")){
                 if(ex is FormatException){
                     Console.WriteLine(ex.Message);
-                    System.Console.WriteLine("Corrective action taken in Process");
+                    System.Console.WriteLine("Corrective action taken in Process1");
                 }else if(ex is DivideByZeroException){
                     Console.WriteLine(ex.Message);
-                    System.Console.WriteLine("Partial corrective action taken in Process...further action required");
+                    System.Console.WriteLine("Partial corrective action taken in Process1...further action required");
                     throw;
                 }else{
-                    throw new Exception("Unknown exception in Process", ex);
+                    throw new Exception("Unknown exception in Process1", ex);
                 }
             }
+        }
+    }
+}
+static void Process2(string[] Entries){
+    int value;
+    foreach(string entry in Entries){
+        try{
+            value = int.Parse(entry);
+            checked{ int calc = 4/value; }
+        }
+        catch(FormatException ex){
+            FormatException fex = new FormatException("FormatException! Invalid entry in Process2");
+            throw invalidFormatException;
+        }
+        catch(DivideByZeroException ex){
+            DivideByZeroException zex = new DivideByZeroException("DivideByZeroException! Calculation in 'Process2' encountered an unexpected divide by zero");
+            throw unexpectedDivideByZeroException;
         }
     }
 }
