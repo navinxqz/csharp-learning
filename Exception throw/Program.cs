@@ -24,17 +24,14 @@ static string Workflow1(string[][] Values)
     foreach (string[] userEntries in Values)
     {
         processStatusMessage = Process1(userEntries);
-
         if (processStatusMessage == "process complete")
         {
-            Console.WriteLine("'Process1' completed successfully.");
-            Console.WriteLine();
+            Console.WriteLine("'Process1' completed successfully.\n");
         }
         else
         {
             Console.WriteLine("'Process1' encountered an issue, process aborted.");
-            Console.WriteLine(processStatusMessage);
-            Console.WriteLine();
+            Console.WriteLine(processStatusMessage + Environment.NewLine);
             operationStatusMessage = processStatusMessage;
         }
     }
@@ -42,9 +39,7 @@ static string Workflow1(string[][] Values)
     if (operationStatusMessage == "good")
     {
         operationStatusMessage = "operating procedure complete";
-    }
-
-    return operationStatusMessage;
+    }return operationStatusMessage;
 }
 
 static string Process1(String[] userEntries)
@@ -56,33 +51,23 @@ static string Process1(String[] userEntries)
     foreach (string userValue in userEntries)
     {
         bool integerFormat = int.TryParse(userValue, out valueEntered);
-
         if (integerFormat == true)
         {
             if (valueEntered != 0)
             {
-                checked
-                {
-                    int calculatedValue = 4 / valueEntered;
-                }
+                checked { int calculatedValue = 4 / valueEntered; }
             }
             else
             {
                 returnMessage = "Invalid data. User input values must be non-zero values.";
                 processStatus = "error";
             }
-        }
-        else
+        }else
         {
             returnMessage = "Invalid data. User input values must be valid integers.";
             processStatus = "error";
         }
     }
-
-    if (processStatus == "clean")
-    {
-        returnMessage = "process complete";
-    }
-
+    if (processStatus == "clean"){ returnMessage = "process complete"; }
     return returnMessage;
 }
