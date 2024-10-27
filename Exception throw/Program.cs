@@ -1,21 +1,20 @@
 ﻿try
 {
-
-}catch(Exception ex)
-{
-    Console.WriteLine(ex.Message);
+    Process1();
 }
+catch(Exception ex){ Console.WriteLine(ex.Message); }
+
 static void Process1(){
     string[][] value = new string[][]{
         new string[] { "1", "two", "3" },
         new string[] { "0", "6","2" }
     };
-    foreache(string[] v in value){
+    foreach(string[] v in value){
         try{
 
         }catch(Exception ex){
             //Console.WriteLine(ex.Message);
-            if(ex.StackTrace.Contains("Process")){
+            if(ex.StackTrace.Contains("Process2")){
                 if(ex is FormatException){
                     Console.WriteLine(ex.Message);
                     System.Console.WriteLine("Corrective action taken in Process1");
