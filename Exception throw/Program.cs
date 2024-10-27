@@ -38,11 +38,13 @@ static void Process2(string[] Entries){
         }
         catch(FormatException ex){
             FormatException fex = new FormatException("FormatException! Invalid entry in Process2");
-            throw invalidFormatException;
+            //throw invalidFormatException;
+            throw fex;
         }
         catch(DivideByZeroException ex){
             DivideByZeroException zex = new DivideByZeroException("DivideByZeroException! Calculation in 'Process2' encountered an unexpected divide by zero");
-            throw unexpectedDivideByZeroException;
+            //throw unexpectedDivideByZeroException;
+            throw zex;
         }
     }
 }
